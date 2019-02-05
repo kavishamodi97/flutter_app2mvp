@@ -1,0 +1,34 @@
+{
+  "@@last_modified": "2019-01-08T11:16:22.169172",
+  "title": "Baby Name Votes",
+  "@title": {
+    "description": "Title of the Application",
+    "type": "text",
+    "placeholders": {}
+  },
+  "alertTitle": "Are you sure?",
+  "@alertTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addButton": "Add",
+  "@addButton": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "clearButton": "Clear",
+  "@clearButton": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "okButton": "Ok",
+  "@okButton": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancelButton": "Cancel",
+  "@cancelButton": {
+    "type": "text",
+    "placeholders": {}
+  }
+}
