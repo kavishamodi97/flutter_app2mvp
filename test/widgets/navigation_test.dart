@@ -7,6 +7,7 @@ import 'package:flutter_app2/Addpage/Add_name.dart';
 import 'package:flutter_app2/main.dart';
 import 'package:flutter_app2/Local/Localizations.dart ' show AppLocalizations;
 import 'package:path/path.dart';
+import 'package:flutter/foundation.dart';
 
 String get title => Intl.message('Baby Name Votes',
     name: 'title', desc: 'Title of the Application');
@@ -21,21 +22,31 @@ class Mockapp extends Mock implements AppLocalizations {} // Title
 
 class Mockcon extends Mock implements BuildContext {} // Context
 
-void main() {
+//class MockText extends Mock implements MaterialApp{}
 
+
+void main() {
   group('Navigation tests', () {
     NavigatorObserver mockObserver;
     AppLocalizations mockLocalisation;
     BuildContext mockContext;
+    //MockText mockText;
 
     setUp(() {
       mockObserver = MockNavigatorObserver();
       mockContext = Mockcon(); // Context
       mockLocalisation = new MockAppLocalization(); // Applocalization
+      //mockText = MockText();
+
     });
+
+
 
     Future<Null> buildMainPage(WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
+
+        //title: 'Baby Name Votes',
+
 
         home: MyHomePage(),
 
@@ -49,6 +60,7 @@ void main() {
       verify(mockObserver.didPush(any, any));
     }
 
+
     Future<Null> navigateToDetailsPage(WidgetTester tester) async {
       /// Tap the button which should navigate to the details page.
       /// By calling tester.pumpAndSettle(), we ensure that all animations
@@ -58,24 +70,32 @@ void main() {
       await tester.pumpAndSettle();
     }
 
+
+
+
+
     testWidgets(
         'when tapping "navigate to details" button, should navigate to details page',
             (WidgetTester tester) async {
           // when(app.title).thenReturn('Baby Name Votes');
           //expect(app.title, "Baby Name Votes");
 
-          //when(app.title).thenReturn('Baby Name Votes');
-          //expect(app.title, 'Baby Name Votes');
+          when(mockLocalisation.title).thenReturn("title");
 
-           when(mockLocalisation.title).thenReturn("title");
-
+          when(mockLocalisation.title).thenReturn('Baby Name Votes');
+          // expect(mockLocalisation.title, 'Baby Name Votes');
           // when(app.title).thenThrow(RangeError('hi'));
           //expect(() => app.title, throwsRangeError);
 
 //   when(AppLocalizations.of()).thenReturn();
-          await tester.pumpWidget(build(Mockcon));
+
+
+
+
           await buildMainPage(tester);
           await navigateToDetailsPage(tester);
+          await tester.pumpAndSettle();
+
 
           /// By tapping the button, we should've now navigated to the details
           /// page. The didPush() method should've been called...
@@ -95,7 +115,9 @@ void main() {
     );
     }); */
   });
+
+
+
 }
 
-Widget build(Type mockcon) {
-}
+
